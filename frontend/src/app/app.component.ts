@@ -6,7 +6,6 @@ import {
   catchError,
   debounceTime,
   distinctUntilChanged,
-  map,
   tap,
   switchMap,
 } from 'rxjs/operators';
@@ -20,7 +19,7 @@ import { Display, SearchResult } from './structure.type';
 export class AppComponent {
   constructor(private searchService: SearchService) {}
   public model: any;
-  statesWithFlags: { name: string; backdrop_path: string }[];
+  // statesWithFlags: { name: string; backdrop_path: string }[];
   collapsed = true;
 
   toggleCollapsed() {
