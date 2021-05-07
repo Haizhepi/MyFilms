@@ -1,0 +1,68 @@
+.home {
+  min-height: 85vh;
+  background-color: rgba(3, 8, 55, 255);
+}
+.carousel-caption {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 40%);
+  display: none;
+}
+
+.rows {
+  bottom: 0%;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.item img:hover + .carousel-caption {
+  transform: scale(1.05);
+  display: block;
+}
+
+.img-size {
+  min-height: 100px;
+  min-width: 50px;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-caption {
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 40%);
+}
+
+.item img:hover + .carousel-caption {
+  transform: scale(1.05);
+  display: block;
+}
+.item {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  display: none;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 40%);
+}
+
+.item img:hover + .caption {
+  transform: scale(1.05);
+  display: block;
+}
+
+.cards {
+  height: 100%;
+}

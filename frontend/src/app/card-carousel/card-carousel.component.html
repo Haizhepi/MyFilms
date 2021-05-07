@@ -1,0 +1,74 @@
+<div class="row w-100">
+  <p class="text-white my-3 h2 font-weight-normal col-sm-10 offset-sm-1 ml-3">
+    {{ brand }}
+  </p>
+</div>
+<!-- Mobile section : one image per slide -->
+<ngb-carousel
+  #cardM
+  id="cardM"
+  *ngIf="mobile"
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="false"
+>
+  <ng-template ngbSlide *ngFor="let card of cardInfoM">
+    <div class="row">
+      <div
+        class="col-8 offset-2 item"
+        [routerLink]="['/watch/' + card.media_type, card.id]"
+      >
+        <img
+          [src]="card.poster_path"
+          class="img-fluid"
+          alt="Random first slide"
+          onerror="this.src='assets/movie_placeholder.png';"
+        />
+        <div class="caption-always text-left center-block">
+          <p class="pl-2 pt-5 text-light">{{ card.title }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- Desktop section : multiple images per slide -->
+<div class="row mx-2 rows ma-1" *ngIf="!mobile && cardInfo[0].length < 6">
+  <div
+    *ngFor="let card of cardInfo[0]"
+    class="col-sm-2 item"
+    [routerLink]="['/watch/' + card.media_type, card.id]"
+    (click)="onClickCard(card)"
+  >
+    <img [src]="card.poster_path" alt="Random first slide" class="img-fluid" />
+    <div class="caption text-left center-block">
+      <p class="pl-2 pt-5 text-light">{{ card.title }}</p>
+    </div>
+  </div>
+</div>
+<ngb-carousel
+  #card
+  id="card"
+  *ngIf="!mobile && cardInfo[0].length >= 6"
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+  class="cards ma-1"
+>
+  <ng-template ngbSlide *ngFor="let group of cardInfo">
+    <div class="row mx-2 rows">
+      <div
+        *ngFor="let card of group"
+        class="col-sm-2 item"
+        [routerLink]="['/watch/' + card.media_type, card.id]"
+        (click)="onClickCard(card)"
+      >
+        <img
+          [src]="card.poster_path"
+          alt="Random first slide"
+          class="img-fluid"
+        />
+        <div class="caption text-left center-block">
+          <p class="pl-2 pt-5 text-light">{{ card.title }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>

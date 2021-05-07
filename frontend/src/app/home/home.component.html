@@ -1,0 +1,96 @@
+<div class="container home">
+  <div class="row">
+    <div class="col-sm-12">
+      <ngb-carousel
+        *ngIf="mainMovies && !mobile"
+        [interval]="2000"
+        [pauseOnHover]="pauseOnHover"
+      >
+        <ng-template ngbSlide *ngFor="let trending of mainMovies">
+          >
+          <div
+            [routerLink]="['/watch/movie', trending.id]"
+            class="item carosuel-page"
+            (click)="onClick(trending)"
+          >
+            <img
+              [src]="trending.backdrop_path"
+              alt="Random first slide"
+              class="w-100"
+            />
+            <div class="carousel-caption">
+              <p class="pl-5 text-light">{{ trending.title }}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <ngb-carousel
+        *ngIf="mainMovies && mobile"
+        [interval]="2000"
+        [pauseOnHover]="pauseOnHover"
+        [showNavigationIndicators]="false"
+      >
+        <ng-template ngbSlide *ngFor="let trending of mainMovies">
+          >
+          <div
+            [routerLink]="['/watch/movie', trending.id]"
+            class="item"
+            (click)="onClick(trending)"
+          >
+            <img
+              [src]="trending.backdrop_path"
+              alt="Random first slide"
+              class="w-100"
+            />
+            <div class="carousel-caption">
+              <p class="pl-5 text-light">{{ trending.title }}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <app-card-carousel
+      *ngIf="isContiune"
+      class="my-3 w-100"
+      [cardInfo]="continueDisplayF"
+      [cardInfoM]="continueDisplay"
+      [brand]="'Continue Watching'"
+    ></app-card-carousel>
+    <app-card-carousel
+      class="my-3 w-100"
+      [cardInfo]="popularMoviesF"
+      [cardInfoM]="popularMovies"
+      [brand]="'Popular Movies'"
+    ></app-card-carousel>
+    <app-card-carousel
+      class="my-3 w-100"
+      [cardInfo]="topRatedMoviesF"
+      [cardInfoM]="topRatedMovies"
+      [brand]="'Top Rated Movies'"
+    ></app-card-carousel>
+    <app-card-carousel
+      class="my-3 w-100"
+      [cardInfo]="trendingMoviesF"
+      [cardInfoM]="trendingMovies"
+      [brand]="'Trending Movies'"
+    ></app-card-carousel>
+    <app-card-carousel
+      class="my-3 w-100"
+      [cardInfo]="popularTVsF"
+      [cardInfoM]="popularTVs"
+      [brand]="'Popular TV Shows'"
+    ></app-card-carousel
+    ><app-card-carousel
+      class="my-5 w-100"
+      [cardInfo]="topRatedTVsF"
+      [cardInfoM]="topRatedTVs"
+      [brand]="'Top Rated TV Shows'"
+    ></app-card-carousel
+    ><app-card-carousel
+      class="my-5 w-100"
+      [cardInfo]="trendingTVsF"
+      [cardInfoM]="trendingTVs"
+      [brand]="'Trending TV Shows'"
+    ></app-card-carousel>
+  </div>
+</div>

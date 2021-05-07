@@ -1,0 +1,43 @@
+.cast-card {
+  border: none;
+  border-radius: 10px;
+  min-width: 170px;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 5px;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.hscroll {
+  width: 100px;
+}
+
+.card-body {
+  padding: 0vh;
+}
+
+.cards {
+  --scrollbarBG: rgba(44, 48, 71, 255);
+  --thumbBG: rgba(154, 159, 165, 255);
+}
+.cards::-webkit-scrollbar {
+  width: 11px;
+}
+.cards {
+  margin-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.cards::-webkit-scrollbar-track {
+  border-radius: 10px;
+
+  background: var(--scrollbarBG);
+}
+.cards::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 10px;
+  border: 3px solid var(--scrollbarBG);
+}

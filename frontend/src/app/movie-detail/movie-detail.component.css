@@ -1,0 +1,53 @@
+.home {
+  height: 100%;
+  /* background-color: rgba(3, 8, 55, 255); */
+}
+
+.cast-card {
+  border: none;
+  border-radius: 10px;
+  width: 10vw;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 5px;
+
+  height: 20vw;
+  object-fit: cover;
+}
+
+.hscroll {
+  width: 100px;
+}
+
+.facebook-color {
+  color: #002eff;
+}
+
+.twitter-color {
+  color: #489cf6;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.badge-black {
+  color: white;
+  background-color: black;
+}
+
+.three-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.card {
+  border-radius: 20px;
+}

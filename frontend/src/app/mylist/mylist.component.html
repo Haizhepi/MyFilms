@@ -1,0 +1,30 @@
+<div class="container home">
+  <div class="row">
+    <p
+      *ngIf="isEmpty"
+      class="display-4 text-light col-sm-10 offset-sm-1 mt-5 text-center"
+    >
+      No Items Found in Watchlist.
+    </p>
+  </div>
+  <div class="col-sm-10 offset-sm-1 mt-5">
+    <div *ngFor="let cardInfo of displayF">
+      <div class="row mx-2 cards ma-1">
+        <div
+          *ngFor="let card of cardInfo"
+          class="col-sm-2 col-xs-12 item w-100 my-3"
+          [routerLink]="['/watch/' + card.media_type, card.id]"
+        >
+          <img
+            [src]="card.poster_path"
+            alt="Random first slide"
+            class="w-100"
+          />
+          <div class="caption text-left w-100">
+            <p class="pl-2 text-light">{{ card.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

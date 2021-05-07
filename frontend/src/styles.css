@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+input {
+  width: 200px;
+  /* background: linear-gradient(#000, #000) center bottom 5px / calc(100% - 10px)
+    2px no-repeat; */
+  border: 0px;
+  border-bottom: 1px solid white;
+
+  background-color: rgba(2, 8, 36, 255);
+  padding: 10px;
+}
+
+.navb {
+  background-color: rgba(2, 8, 36, 255);
+}
+
+.main {
+  box-sizing: border-box;
+  background-color: rgba(3, 8, 55, 255);
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-menu {
+  width: 300px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: rgba(2, 8, 36, 255);
+}
+
+.footer {
+  height: 10vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 50%);
+}
+
+*:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+* {
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
+}
+
+html {
+  --scrollbarBG: rgba(3, 8, 55, 255);
+  --thumbBG: #c3cfd4;
+}
+body::-webkit-scrollbar {
+  width: 7px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  border-left: 1px solid var(--thumbBG);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+}

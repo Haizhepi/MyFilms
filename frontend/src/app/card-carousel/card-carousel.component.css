@@ -1,0 +1,76 @@
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-caption {
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 40%);
+}
+
+.item img:hover + .carousel-caption {
+  transform: scale(1.05);
+  display: block;
+}
+.item {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  display: none;
+  bottom: 0%;
+  left: 6%;
+  width: 88%;
+  height: 40%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 50%);
+}
+
+.caption p {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+}
+
+.caption-always {
+  position: absolute;
+  bottom: 0%;
+  left: 6%;
+  width: 88%;
+  height: 40%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 50%);
+}
+.caption-always p {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+}
+
+.item img:hover + .caption {
+  transform: scale(1.05);
+  display: block;
+}
+
+.cards {
+  height: 100%;
+}
+
+.img-size {
+  height: 30vh;
+  width: 10vw;
+}
+
+::ng-deep #card .carousel-indicators {
+  /* bottom: -10%; */
+}
+
+::ng-deep #card .carousel-control-prev {
+  top: -30%;
+  left: -8%;
+}
+::ng-deep #card .carousel-control-next {
+  top: -30%;
+  right: -8%;
+}

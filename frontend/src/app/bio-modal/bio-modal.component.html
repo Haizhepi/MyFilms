@@ -1,0 +1,74 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ person.bio.name }}!</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-sm-3">
+      <img [src]="person.bio.profile_path" alt="" class="img-fluid" />
+    </div>
+    <div class="col-sm-9">
+      <p class="my-0">Birth: {{ person.bio.birthday }}</p>
+      <p class="my-0">Birth Place: {{ person.bio.place_of_birth }}</p>
+      <p class="my-0">Gender: {{ person.bio.gender }}</p>
+      <p class="my-0">Known for: {{ person.bio.known_for_department }}</p>
+      <p class="my-0">
+        Also Known as: {{ person.bio.also_known_as.join(",") }}
+      </p>
+      <p class="mt-3">
+        <a
+          *ngIf="person.external.imdb"
+          [href]="'https://' + person.external.imdb"
+          target="_blank"
+          class="imdb-color"
+          placement="top"
+          ngbPopover="Visit IMDB"
+          triggers="mouseenter:mouseleave"
+        >
+          <i class="fa fa-imdb fa-2x">&nbsp;</i></a
+        >
+        <a
+          *ngIf="person.external.instagram"
+          [href]="'https://' + person.external.instagram"
+          target="_blank"
+          class="instagram-color"
+          ngbPopover="Visit Instagram"
+          triggers="mouseenter:mouseleave"
+        >
+          <i class="fa fa-instagram fa-2x">&nbsp;</i></a
+        >
+        <a
+          *ngIf="person.external.facebook"
+          [href]="'https://' + person.external.facebook"
+          target="_blank"
+          class="facebook-color"
+          ngbPopover="Visit Facebook"
+          triggers="mouseenter:mouseleave"
+        >
+          <i class="fa fa-facebook-square fa-2x"></i>&nbsp;</a
+        >
+        <a
+          *ngIf="person.external.twitter"
+          [href]="'https://' + person.external.twitter"
+          target="_blank"
+          class="twitter-color"
+          ngbPopover="Visit Twitter"
+          triggers="mouseenter:mouseleave"
+        >
+          <i class="fa fa-twitter fa-2x"></i
+        ></a>
+      </p>
+    </div>
+  </div>
+  <div *ngIf="person.bio.biography" class="row mt-3">
+    <h3 class="col-12">Biography</h3>
+    <p class="col-12">{{ person.bio.biography }}</p>
+  </div>
+</div>

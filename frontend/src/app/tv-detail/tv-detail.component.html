@@ -1,0 +1,153 @@
+<div class="container home mt-5">
+  <div class="row d-flex justify-content-center" *ngIf="!isloading">
+    <div
+      *ngIf="mobile"
+      class="embed-responsive embed-responsive-16by9 col-10 mb-3"
+    >
+      <youtube-player [videoId]="videoId" suggestedQuality="highres">
+      </youtube-player>
+    </div>
+    <div
+      *ngIf="!mobile"
+      class="embed-responsive embed-responsive-16by9"
+      class="col-sm-8 mb-3 text-center"
+    >
+      <youtube-player [videoId]="videoId" suggestedQuality="highres">
+      </youtube-player>
+    </div>
+    <div class="col-sm-4">
+      <h1 class="display-5 text-light text-left font-weight-light">
+        {{ detail.data.name }}
+      </h1>
+      <p class="h4 text-light font-italic font-weight-light text-center mb-5">
+        {{ detail.data.tagline }}
+      </p>
+      <p
+        class="h4 text-light font-weight-light"
+        *ngIf="detail.data.first_air_date"
+      >
+        {{ detail.data.first_air_date.substr(0, 4) }} &nbsp; |&nbsp;
+        <i class="fa fa-star"> </i> &nbsp; {{ detail.data.vote_average }}&nbsp;
+        |&nbsp; {{ detail.data.episode_run_time[0] }} mins
+      </p>
+      <p class="text-light font-weight-light mt-3">
+        <span class="font-weight-normal">Genres: &nbsp;</span
+        >{{ detail.data.genres.join(", ") }}
+      </p>
+      <p class="text-light font-weight-light">
+        <span class="font-weight-normal">Spoken Languages: &nbsp;</span
+        >{{ languages }}
+      </p>
+      <button
+        *ngIf="inWatchList"
+        class="btn btn-primary my-3"
+        type="button"
+        (click)="removeFromList()"
+      >
+        Remove from Watchlist
+      </button>
+      <button
+        *ngIf="!inWatchList"
+        class="btn btn-primary my-3"
+        (click)="addToList()"
+        type="button"
+      >
+        Add to Watchlist
+      </button>
+      <ngb-alert
+        #alert
+        class="mt-4"
+        *ngIf="addtoListMessage"
+        type="success"
+        (closed)="resetAlerts()"
+        >Added to Watchlist</ngb-alert
+      >
+      <ngb-alert
+        #alert
+        class="mt-4"
+        *ngIf="removeFromListMessage"
+        type="danger"
+        (closed)="resetAlerts()"
+        >Removed from Watchlist</ngb-alert
+      >
+    </div>
+  </div>
+  <p class="h5 text-left text-light mt-2">Description</p>
+  <p class="text-left text-light mt-2">{{ detail.data.overview }}</p>
+  <p class="h5 text-left text-light mt-2">Share</p>
+
+  <p class="text-left text-light mt-2">
+    <a
+      [href]="'https://twitter.com/intent/tweet?text=' + shareTwitter"
+      target="_blank"
+    >
+      <i class="fa fa-twitter fa-2x twitter-color"> &nbsp;</i>
+    </a>
+    <a [href]="shareFacebook" target="_blank">
+      <i class="fa fa-facebook-square fa-2x facebook-color"> </i>
+    </a>
+  </p>
+  <div class="row">
+    <app-hscrollcast
+      class="col-12 container-fluid"
+      *ngIf="!isCastLoading"
+      [casts]="casts"
+    ></app-hscrollcast>
+  </div>
+  <div *ngIf="!isReviewLoading">
+    <h2 class="font-weight-normal text-light" *ngIf="reviews.length > 0">
+      Reviews <span class="text-dark"> &nbsp;{{ reviews.length }}</span>
+    </h2>
+    <div class="card w-100 my-3" *ngFor="let rev of reviews">
+      <div class="row no-gutters">
+        <div class="col-sm-3 d-flex justify-content-center">
+          <img
+            class="card-img avatar mt-4"
+            [src]="rev.avatar_path"
+            alt="Avatar"
+            onerror="this.src='assets/person.jpeg';"
+          />
+        </div>
+        <div class="col-sm-9">
+          <div class="card-body">
+            <h5 class="card-title">
+              A review created by {{ rev.author }}
+              <span class="badge badge-pill badge-black"
+                ><i class="fa fa-star"> </i>&nbsp;{{ rev.rating }}</span
+              >
+            </h5>
+            <p class="card-text mt-5" style="color: grey">
+              Written by {{ rev.author }} on
+              {{ rev.created_at | date: "MMMM d, yyyy h:mm:ss a" }}
+            </p>
+            <p class="card-text three-lines">
+              {{ rev.content }}
+            </p>
+            <p class="mb-0">
+              <a
+                [href]="rev.url"
+                target="_blank"
+                style="text-decoration: underline"
+                >Read the rest</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <app-card-carousel
+      *ngIf="!isRecommendLoading"
+      class="my-5"
+      [cardInfo]="recommendF"
+      [brand]="'Recommended TV Shows'"
+    ></app-card-carousel>
+    <app-card-carousel
+      *ngIf="!isSimilarLoading"
+      class="my-5"
+      [cardInfo]="similiarF"
+      [brand]="'Similiar TV Shows'"
+    ></app-card-carousel>
+  </div>
+</div>

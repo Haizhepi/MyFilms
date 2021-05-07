@@ -1,0 +1,29 @@
+.home {
+  height: 100%;
+  background-color: rgba(3, 8, 55, 255);
+}
+.carousel-caption {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), #000000 40%);
+  display: none;
+}
+
+.carosuel-page {
+  height: 50vh;
+}
+
+.rows {
+  bottom: 0%;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.item img:hover + .carousel-caption {
+  transform: scale(1.05);
+  display: block;
+}

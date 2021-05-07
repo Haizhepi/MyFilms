@@ -1,0 +1,19 @@
+<h2 class="font-weight-bold text-light">Full Cast and Crew</h2>
+<div class="d-flex flex-row flex-nowrap overflow-auto cards" *ngIf="casts">
+  <div
+    *ngFor="let cast of casts"
+    class="card cast-card mx-2"
+    (click)="open(cast.id)"
+  >
+    <img class="card-img-top img-fluid" [src]="cast.profile_path" alt="" />
+    <div class="card-body">
+      <p class="card-text font-weight-bold text-center my-0">
+        {{ cast.name }}
+      </p>
+      <p class="card-text text-center font-weight-bold my-0">AS</p>
+      <p class="card-text text-center">
+        {{ cast.character }}
+      </p>
+    </div>
+  </div>
+</div>
